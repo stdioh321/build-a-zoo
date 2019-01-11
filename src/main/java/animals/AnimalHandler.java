@@ -1,25 +1,22 @@
 package animals;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+import java.util.StringJoiner;
 
 public class AnimalHandler {
 
-    private ArrayList<Animal> listAnimals = new ArrayList<Animal>();
+    private ArrayList<Animal> listAnimals = new ArrayList<>();
 
 
     public void startAnimals() {
 
-        this.getListAnimals().add(new Dog("Killian", "Meat", "Hunting dog"));
-        this.getListAnimals().add(new Dog("Rocky", "Fresh meat", "Working dog"));
-        this.getListAnimals().add(new Dog("Peter", "Pedigree", "Sport dog"));
-        this.getListAnimals().add(new Parrot("Parrote one", "Grain", false, 0.25f));
-        this.getListAnimals().add(new Parrot("Parrote two", "Corn", true, 0.5f));
-        this.getListAnimals().add(new Chicken("Chicken one", "Corn", true, 0.75f));
-        this.getListAnimals().add(new Chicken("Chicken two", "Corn", false, 0.75f));
+        listAnimals.add(new Dog("Killian", "Meat", "Hunting dog"));
+        listAnimals.add(new Dog("Rocky", "Fresh meat", "Working dog"));
+        listAnimals.add(new Dog("Peter", "Pedigree", "Sport dog"));
+        listAnimals.add(new Parrot("Parrote one", "Grain", false, 0.25f));
+        listAnimals.add(new Parrot("Parrote two", "Corn", true, 0.5f));
+        listAnimals.add(new Chicken("Chicken one", "Corn", true, 0.75f));
+        listAnimals.add(new Chicken("Chicken two", "Corn", false, 0.75f));
 
     }
 
@@ -30,10 +27,12 @@ public class AnimalHandler {
                 System.out.print("[Have no Friends]");
             } else {
                 System.out.print("Friends: ");
-//                String listString = list.stream().map(Object::toString).collect(Collectors.joining(", "));
-                String strFriends = a.getFriends().stream().map((tmpAnimal) -> {
-                    return tmpAnimal.getName();
-                }).collect(Collectors.joining(", "));
+                StringJoiner joiner = new StringJoiner(", ");
+                for (Animal tmpAnimal : a.getFriends()) {
+                    String name = tmpAnimal.getName();
+                    joiner.add(name);
+                }
+                String strFriends = joiner.toString();
                 System.out.print(strFriends);
 
             }
@@ -58,12 +57,11 @@ public class AnimalHandler {
         }
         System.out.println("------------------------------------------------------------");
         for (Animal currAnimal : animals) {
-            boolean valid = false;
-            while (valid == false) {
+            while (true) {
                 Animal tmpAnimal = animals.get(randomInt(animals.size()));
                 if (currAnimal.stablishFriendship(tmpAnimal)) {
-                    valid = true;
                     System.out.println(currAnimal.getName() + " now is friends with " + tmpAnimal.getName());
+                    break;
                 }
 
             }

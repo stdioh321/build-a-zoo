@@ -1,7 +1,5 @@
 package animals;
 
-import java.util.ArrayList;
-
 public class Dog extends Animal {
     private String dogType;
 

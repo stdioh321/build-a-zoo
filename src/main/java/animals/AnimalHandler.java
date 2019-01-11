@@ -44,7 +44,7 @@ public class AnimalHandler {
 
 
     public void liveOneDay(ArrayList<Animal> animals) {
-        for (Animal currAnimal : animals) {
+        animals.forEach((currAnimal)->{
             try {
                 if (currAnimal.getFriends().size() > 0) {
                     if (currAnimal.loseFriendship(currAnimal.getFriends().get(0))) {
@@ -55,7 +55,7 @@ public class AnimalHandler {
             } catch (Exception exc) {
 
             }
-        }
+        });
         System.out.println("------------------------------------------------------------");
         for (Animal currAnimal : animals) {
             boolean valid = false;

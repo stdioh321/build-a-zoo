@@ -37,7 +37,7 @@ public class Menu {
             }
 
 
-            System.out.println("\n");
+            System.out.println();
         }
     }
 

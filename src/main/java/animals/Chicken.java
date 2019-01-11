@@ -1,7 +1,5 @@
 package animals;
 
-import java.util.ArrayList;
-
 public class Chicken extends Animal{
     private boolean broiler;
     private Float wingLength;

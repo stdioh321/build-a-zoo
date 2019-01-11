@@ -9,24 +9,28 @@ public class Menu {
         animalH.startAnimals();
 
         Integer itemChoosed = 0;
-//        System.out.println(((Dog)allAnimals.get(0)).getDogType());
         while (itemChoosed != 3) {
-            System.out.println("1 - List All\t2 - Live one day\t3 - Exit");
+            System.out.println("1 - List All Animals\t2 - Live one day\t3 - Exit");
             System.out.print("Choose your option: ");
             Scanner scanner = new Scanner(System.in);
 
             try {
                 itemChoosed = scanner.nextInt();
-                if (itemChoosed == 1) {
-                    clearConsole();
-                    animalH.listaAllAnimals((animalH.getListAnimals()));
-                } else if (itemChoosed == 2) {
-                    clearConsole();
-                    animalH.liveOneDay(animalH.getListAnimals());
-                } else if (itemChoosed == 3) {
-                    System.out.println("Leaving....");
-                }else{
-                    System.out.println("There is no such option.");
+                switch (itemChoosed) {
+                    case 1:
+                        clearConsole();
+                        animalH.listAllAnimals((animalH.getListAnimals()));
+                        break;
+                    case 2:
+                        clearConsole();
+                        animalH.liveOneDay(animalH.getListAnimals());
+                        break;
+                    case 3:
+                        System.out.println("Leaving....");
+                        break;
+                    default:
+                        System.out.println("There is no such option.");
+                        break;
                 }
             } catch (Exception exc) {
                 System.out.println("Incorrect option.");

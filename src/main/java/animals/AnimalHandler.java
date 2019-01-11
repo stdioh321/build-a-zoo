@@ -1,20 +1,17 @@
 package animals;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class AnimalHandler {
 
     private ArrayList<Animal> listAnimals = new ArrayList<Animal>();
 
-    public ArrayList<Animal> getListAnimals() {
-        return listAnimals;
-    }
 
-    public void setListAnimals(ArrayList<Animal> listAnimals) {
-        this.listAnimals = listAnimals;
-    }
-
-    public void startAnimals(){
+    public void startAnimals() {
 
         this.getListAnimals().add(new Dog("Killian", "Meat", "Hunting dog"));
         this.getListAnimals().add(new Dog("Rocky", "Fresh meat", "Working dog"));
@@ -26,17 +23,19 @@ public class AnimalHandler {
 
     }
 
-    public void listaAllAnimals(ArrayList<Animal> animals) {
+    public void listAllAnimals(ArrayList<Animal> animals) {
         for (Animal a : animals) {
             System.out.println(a.toString());
             if (a.getFriends().size() < 1) {
                 System.out.print("[Have no Friends]");
-
             } else {
                 System.out.print("Friends: ");
-                for (Animal a2 : a.getFriends()) {
-                    System.out.print(a2.getName() + ", ");
-                }
+//                String listString = list.stream().map(Object::toString).collect(Collectors.joining(", "));
+                String strFriends = a.getFriends().stream().map((tmpAnimal) -> {
+                    return tmpAnimal.getName();
+                }).collect(Collectors.joining(", "));
+                System.out.print(strFriends);
+
             }
 
             System.out.println();
@@ -45,12 +44,11 @@ public class AnimalHandler {
 
 
     public void liveOneDay(ArrayList<Animal> animals) {
-        for (Animal a2 : animals) {
-//            System.out.println(a.getName() + " - " + a.getFriends().size());
+        for (Animal currAnimal : animals) {
             try {
-                if (a2.getFriends().size() > 0) {
-                    if (a2.loseFriendship(a2.getFriends().get(0))) {
-                        System.out.println(a2.getName() + " has lost friendship with " + a2.getFriends().get(0).getName());
+                if (currAnimal.getFriends().size() > 0) {
+                    if (currAnimal.loseFriendship(currAnimal.getFriends().get(0))) {
+                        System.out.println(currAnimal.getName() + " has lost friendship with " + currAnimal.getFriends().get(0).getName());
                     }
                 }
 
@@ -58,11 +56,14 @@ public class AnimalHandler {
 
             }
         }
-        for (Animal a2 : animals) {
+        System.out.println("------------------------------------------------------------");
+        for (Animal currAnimal : animals) {
             boolean valid = false;
             while (valid == false) {
-                if (a2.stablishFriendship(animals.get(randomInt(animals.size())))) {
+                Animal tmpAnimal = animals.get(randomInt(animals.size()));
+                if (currAnimal.stablishFriendship(tmpAnimal)) {
                     valid = true;
+                    System.out.println(currAnimal.getName() + " now is friends with " + tmpAnimal.getName());
                 }
 
             }
@@ -74,4 +75,11 @@ public class AnimalHandler {
         return (int) Math.floor(Math.random() * max);
     }
 
+    public ArrayList<Animal> getListAnimals() {
+        return listAnimals;
+    }
+
+    public void setListAnimals(ArrayList<Animal> listAnimals) {
+        this.listAnimals = listAnimals;
+    }
 }

@@ -30,7 +30,7 @@ public class App {
                 itemChoosed = scanner.nextInt();
             }catch (Exception exc){
 
-            }d
+            }
 
             if (itemChoosed == 1) {
                 clearConsole();

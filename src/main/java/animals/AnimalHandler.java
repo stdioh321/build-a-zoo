@@ -8,6 +8,7 @@ public class AnimalHandler {
     private ArrayList<Animal> listAnimals = new ArrayList<>();
 
 
+    // Add some animals objects to a list
     public void startAnimals() {
 
         listAnimals.add(new Dog("Killian", "Meat", "Hunting dog"));
@@ -19,7 +20,7 @@ public class AnimalHandler {
         listAnimals.add(new Chicken("Chicken two", "Corn", false, 0.75f));
 
     }
-
+    // Display all the animals and their friends.
     public void listAllAnimals(ArrayList<Animal> animals) {
         for (Animal a : animals) {
             System.out.println(a.toString());
@@ -41,8 +42,10 @@ public class AnimalHandler {
         }
     }
 
-
+    // Make each animal lose a friend and get a new one
     public void liveOneDay(ArrayList<Animal> animals) {
+
+        // Remove one friend of each animal if there is any
         animals.forEach((currAnimal)->{
             try {
                 if (currAnimal.getFriends().size() > 0) {
@@ -56,6 +59,7 @@ public class AnimalHandler {
             }
         });
         System.out.println("------------------------------------------------------------");
+        // Insert one friend for each animal
         for (Animal currAnimal : animals) {
             while (true) {
                 Animal tmpAnimal = animals.get(randomInt(animals.size()));
@@ -69,6 +73,7 @@ public class AnimalHandler {
         }
     }
 
+    // Generate a random Int value
     public static int randomInt(int max) {
         return (int) Math.floor(Math.random() * max);
     }

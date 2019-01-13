@@ -1,5 +1,6 @@
 package animals;
 
+import json.JsonHandler;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,64 +17,29 @@ public class AnimalHandler {
 
     // Add some animals objects to a list
     public void startAnimals() {
-        JSONParser parser = new JSONParser();
         try {
+            // Object to handle the list of animals that are stored in a json file.
+            JsonHandler jHandler = new JsonHandler();
+            ArrayList<Dog> dogsList = jHandler.getDogs();
+            ArrayList<Parrot> parrotsList = jHandler.getParrots();
+            ArrayList<Chicken> chickensList = jHandler.getChicken();
 
-            Object obj = parser.parse(new FileReader("animals.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-
-
-
-
-            // Adding dogs to the list
-            JSONArray dogs = (JSONArray) jsonObject.get("dog");
-            Iterator itDog = dogs.iterator();
-            while (itDog.hasNext()) {
-                JSONObject tmpDog = (JSONObject) itDog.next();
-                listAnimals.add(new Dog((String) tmpDog.get("name"),
-                        (String) tmpDog.get("favoriteFood"),
-                        (String) tmpDog.get("dogType")));
-            }
-
-
-
-            // Adding  parrots to the list
-
-            JSONArray parrot = (JSONArray) jsonObject.get("parrot");
-            Iterator itParrot = parrot.iterator();
-            while (itParrot.hasNext()) {
-                JSONObject tmpParrot = (JSONObject) itParrot.next();
-                String tmpName = (String) tmpParrot.get("name");
-                String tmpFavFood = (String) tmpParrot.get("favoriteFood");
-                Boolean tmpSpeak = (Boolean) tmpParrot.get("speak");
-                Float tmpWingLength = Float.parseFloat(((String) tmpParrot.get("wingLength")));
-
-                listAnimals.add(new Parrot(tmpName,tmpFavFood,tmpSpeak,tmpWingLength));
-            }
-
-
-            // Adding  chickens to the list
-            JSONArray chickens = (JSONArray) jsonObject.get("chicken");
-            Iterator itChicken = chickens.iterator();
-            while (itChicken.hasNext()) {
-                JSONObject tmpChicken = (JSONObject) itChicken.next();
-                listAnimals.add(new Chicken((String) tmpChicken.get("name"),
-                        (String) tmpChicken.get("favoriteFood"),
-                        (boolean) tmpChicken.get("broiler"),
-                        Float.parseFloat(((String) tmpChicken.get("wingLength")))));
-            }
-
-
+            // Add dogs to the main list of animals
+            dogsList.forEach((tmpDog) -> {
+                listAnimals.add(tmpDog);
+            });
+            // Add parrots to the main list of animals
+            parrotsList.forEach((tmpParrot) -> {
+                listAnimals.add(tmpParrot);
+            });
+            // Add chickens to the main list of animals
+            chickensList.forEach((tmpChicken) -> {
+                listAnimals.add(tmpChicken);
+            });
         } catch (Exception e) {
 
         }
-//        listAnimals.add(new Dog("Killian", "Meat", "Hunting dog"));
-//        listAnimals.add(new Dog("Rocky", "Fresh meat", "Working dog"));
-//        listAnimals.add(new Dog("Peter", "Pedigree", "Sport dog"));
-//        listAnimals.add(new Parrot("Parrote one", "Grain", false, 0.25f));
-//        listAnimals.add(new Parrot("Parrote two", "Corn", true, 0.5f));
-//        listAnimals.add(new Chicken("Chicken one", "Corn", true, 0.75f));
-//        listAnimals.add(new Chicken("Chicken two", "Corn", false, 0.75f));
+
 
     }
 

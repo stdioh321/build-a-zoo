@@ -35,7 +35,7 @@ public class JsonHandler {
         List<Dog> dogs = new ArrayList<>();
 
         List<JSONObject> jsonObjectList = toJSONObject((JSONArray) this.mainJsonObject.get("dog"));
-        jsonObjectList.stream().forEach(jsonObject -> dogs.add(toDog(jsonObject)));
+        jsonObjectList.forEach(jsonObject -> dogs.add(toDog(jsonObject)));
 
         return dogs;
     }
@@ -50,7 +50,7 @@ public class JsonHandler {
 
         List<JSONObject> jsonObjectList = toJSONObject(
                 (JSONArray) this.mainJsonObject.get("parrot"));
-        jsonObjectList.stream().forEach(jsonObject -> parrots.add(toParrot(jsonObject)));
+        jsonObjectList.forEach(jsonObject -> parrots.add(toParrot(jsonObject)));
 
         return parrots;
     }
@@ -65,7 +65,7 @@ public class JsonHandler {
 
         List<JSONObject> jsonObjectList = toJSONObject(
                 (JSONArray) this.mainJsonObject.get("chicken"));
-        jsonObjectList.stream().forEach(jsonObject -> chickens.add(toChicken(jsonObject)));
+        jsonObjectList.forEach(jsonObject -> chickens.add(toChicken(jsonObject)));
 
         return chickens;
     }
@@ -80,7 +80,7 @@ public class JsonHandler {
 
     public List<JSONObject> toJSONObject(JSONArray jsonArray) {
         List<JSONObject> jsonObjectList = new ArrayList<>();
-        jsonArray.stream().forEach(s -> jsonObjectList.add((JSONObject) s));
+        jsonArray.forEach(s -> jsonObjectList.add((JSONObject) s));
         return jsonObjectList;
     }
 

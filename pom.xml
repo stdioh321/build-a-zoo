@@ -5,6 +5,13 @@
   <artifactId>BuildingZoo</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <build>
         <finalName>Buildingzoo</finalName>
         <plugins>
@@ -15,9 +22,18 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>App</mainClass>
+                            <mainClass>animals.Main</mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>2.8.1</version>
+                <configuration>
+                    <configFile>${project.basedir}/eclipse-formatter-config.xml</configFile>
                 </configuration>
             </plugin>
 
@@ -33,13 +49,12 @@
             </plugin>
         </plugins>
     </build>
-    <name>BuildingZoo</name>
-  <url>http://maven.apache.org</url>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
 

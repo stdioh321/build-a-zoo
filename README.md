@@ -5,5 +5,5 @@
 
 ```sh
 $ mvn package
-$ mvn exec:java  -D"exec.mainClass=App"
+$ mvn exec:java  -D"exec.mainClass=animals.Main"
 ```

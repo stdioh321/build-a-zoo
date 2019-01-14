@@ -1,15 +1,12 @@
-package animals;
+package animals.model;
 
 public class Dog extends Animal {
     private String dogType;
 
     @Override
     public String toString() {
-        return "Dog{" +
-                "Name='" + this.getName() + '\'' +
-                ", Favorite Food='" + this.getFavoriteFood()+ '\'' +
-                ", Dog Type='" + dogType + '\'' +
-                '}';
+        return "Dog{" + "Name='" + this.getName() + '\'' + ", Favorite Food='"
+                + this.getFavoriteFood() + '\'' + ", Dog Type='" + dogType + '\'' + '}';
     }
 
     public Dog(String name, String favoriteFood, String dogType) {

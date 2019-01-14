@@ -1,4 +1,4 @@
-package animals;
+package animals.model;
 
 public class Parrot extends Animal {
     private boolean speak;
@@ -28,11 +28,8 @@ public class Parrot extends Animal {
 
     @Override
     public String toString() {
-        return "Parrot{" +
-                "Name='" + this.getName()  + '\'' +
-                ", Favorite Food='" + this.getFavoriteFood()  + '\'' +
-                ", Speak='" + speak  + '\'' +
-                ", Wings Length='" + wingLength  + '\'' +
-                '}';
+        return "Parrot{" + "Name='" + this.getName() + '\'' + ", Favorite Food='"
+                + this.getFavoriteFood() + '\'' + ", Speak='" + speak + '\'' + ", Wings Length='"
+                + wingLength + '\'' + '}';
     }
 }

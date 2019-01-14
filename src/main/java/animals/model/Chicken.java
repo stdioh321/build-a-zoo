@@ -1,9 +1,8 @@
-package animals;
+package animals.model;
 
-public class Chicken extends Animal{
+public class Chicken extends Animal {
     private boolean broiler;
     private Float wingLength;
-
 
     public Chicken(String name, String favoriteFood, boolean broiler, Float wingLength) {
         super(name, favoriteFood);
@@ -29,11 +28,8 @@ public class Chicken extends Animal{
 
     @Override
     public String toString() {
-        return "Chicken{" +
-                "Name='" + this.getName()  + '\'' +
-                ", Favorite Food='" + this.getFavoriteFood()  + '\''+
-                ", Broiler='" + broiler   + '\'' +
-                ", Wing Length='" + wingLength   + '\'' +
-                '}';
+        return "Chicken{" + "Name='" + this.getName() + '\'' + ", Favorite Food='"
+                + this.getFavoriteFood() + '\'' + ", Broiler='" + broiler + '\'' + ", Wing Length='"
+                + wingLength + '\'' + '}';
     }
 }

@@ -19,7 +19,7 @@ public class ChickenTest {
     }
 
     @Test
-    public void size(){
-        assertTrue(jsonHandler.getChicken().size()>0);
+    public void size() {
+        assertTrue(jsonHandler.getChicken().size() > 0);
     }
 }

@@ -17,6 +17,7 @@ public class AnimalHandler {
 
     /**
      * Add some animals objects to a list
+     * 
      * @param jsonResourcePath
      * @throws IOException
      * @throws ParseException
@@ -39,6 +40,7 @@ public class AnimalHandler {
 
     /**
      * Display all the animals and their friends.
+     * 
      * @param animals
      */
     public void listAllAnimals(List<Animal> animals) {
@@ -63,6 +65,7 @@ public class AnimalHandler {
 
     /**
      * Make each animal lose a friend and get a new one
+     * 
      * @param animals
      */
     public void liveOneDay(List<Animal> animals) {
@@ -95,6 +98,7 @@ public class AnimalHandler {
 
     /**
      * Generate a random Int value
+     * 
      * @param max
      * @return
      */

@@ -19,7 +19,7 @@ public class AnimalTest {
     }
 
     @Test
-    public void size(){
-        assertTrue(jsonHandler.getDogs().size()>0);
+    public void size() {
+        assertTrue(jsonHandler.getDogs().size() > 0);
     }
 }

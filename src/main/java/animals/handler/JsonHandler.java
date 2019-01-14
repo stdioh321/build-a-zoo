@@ -28,7 +28,8 @@ public class JsonHandler {
 
     /**
      * Reads the dogs on the handler file, and return a list of them
-      * @return
+     * 
+     * @return
      */
     public List<Dog> getDogs() {
         List<Dog> dogs = new ArrayList<>();
@@ -45,6 +46,7 @@ public class JsonHandler {
 
     /**
      * Reads the parrots on the handler file, and return a list of them
+     * 
      * @return
      */
     public List<Parrot> getParrots() {
@@ -63,6 +65,7 @@ public class JsonHandler {
 
     /**
      * Reads the chickens on the handler file, and return a list of them
+     * 
      * @return
      */
     public List<Chicken> getChicken() {

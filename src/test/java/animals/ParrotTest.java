@@ -19,7 +19,7 @@ public class ParrotTest {
     }
 
     @Test
-    public void size(){
-        assertTrue(jsonHandler.getParrots().size()>0);
+    public void size() {
+        assertTrue(jsonHandler.getParrots().size() > 0);
     }
 }

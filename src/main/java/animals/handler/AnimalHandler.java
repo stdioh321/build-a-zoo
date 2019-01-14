@@ -22,7 +22,7 @@ public class AnimalHandler {
      * @throws IOException
      * @throws ParseException
      */
-    public void startAnimals(String jsonResourcePath) throws IOException, ParseException {
+    public void loadFromJsonFile(String jsonResourcePath) throws IOException, ParseException {
         // Object to handle the list of animals that are stored in a handler file.
         JsonHandler jHandler = new JsonHandler(jsonResourcePath);
         List<Dog> dogsList = jHandler.getDogs();
@@ -74,8 +74,8 @@ public class AnimalHandler {
         animals.forEach(currAnimal -> {
             if (currAnimal.getFriends().size() > 0) {
                 if (currAnimal.loseFriendship(currAnimal.getFriends().get(0))) {
-                    System.out.println(currAnimal.getName() + " has lost friendship with "
-                            + currAnimal.getFriends().get(0).getName());
+                    System.out.printf("%s has lost friendship with %s\n", currAnimal.getName()
+                            , currAnimal.getFriends().get(0).getName());
                 }
             }
 
@@ -87,8 +87,8 @@ public class AnimalHandler {
             while (true) {
                 Animal tmpAnimal = animals.get(randomInt(animals.size()));
                 if (currAnimal.establishFriendship(tmpAnimal)) {
-                    System.out.println(
-                            currAnimal.getName() + " now is friends with " + tmpAnimal.getName());
+                    System.out.printf("%s now is friends with %s\n",
+                            currAnimal.getName() , tmpAnimal.getName());
                     break;
                 }
 

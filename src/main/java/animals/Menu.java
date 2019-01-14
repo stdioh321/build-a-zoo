@@ -1,24 +1,23 @@
 package animals;
 
 import animals.handler.AnimalHandler;
-import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class Menu {
 
+    private final AnimalHandler animalHandler;
+
+    public Menu(AnimalHandler animalHandler){
+        this.animalHandler = animalHandler;
+    }
+    
     /**
      * Display the menu cn the console
-     * 
-     * @throws IOException
-     * @throws ParseException
+     *
      */
-    public void start() throws IOException, ParseException {
-
-        AnimalHandler animalH = new AnimalHandler();
-        animalH.startAnimals("/animals.json");
+    public void start() {
 
         Scanner scanner = new Scanner(System.in);
         boolean done = false;
@@ -31,13 +30,13 @@ public class Menu {
             // 1 - For display all the animals and their friends.
             case 1:
                 clearConsole();
-                animalH.listAllAnimals((animalH.getListAnimals()));
+                animalHandler.listAllAnimals(animalHandler.getListAnimals());
                 break;
             // 2 - For each animal stop being friend with one friend and be friends with
             // another animal
             case 2:
                 clearConsole();
-                animalH.liveOneDay(animalH.getListAnimals());
+                animalHandler.liveOneDay(animalHandler.getListAnimals());
                 break;
             // 3 - For exit the program.
             case 3:

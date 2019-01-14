@@ -10,6 +10,8 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,10 +19,11 @@ import java.util.List;
 public class JsonHandler {
     private JSONObject mainJsonObject;
 
-    public JsonHandler(String jsonFile) throws ParseException, IOException {
-        JSONParser parser = new JSONParser();
+    public JsonHandler(String jsonResourcePath) throws IOException, ParseException {
+        InputStream resourceAsStream = JsonHandler.class.getResourceAsStream(jsonResourcePath);
         // Read the file that contains the animals's info
-        Object obj = parser.parse(new FileReader(jsonFile));
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(new InputStreamReader(resourceAsStream));
         this.mainJsonObject = (JSONObject) obj;
 
     }

@@ -1,16 +1,19 @@
 package animals;
 
 import animals.handler.AnimalHandler;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class Menu {
+
     // Display the menu cn the console
-    public void start() {
+    public void start() throws IOException, ParseException {
 
         AnimalHandler animalH = new AnimalHandler();
-        animalH.startAnimals("animals.json");
+        animalH.startAnimals("/animals.json");
 
         Scanner scanner = new Scanner(System.in);
         boolean done = false;
@@ -47,7 +50,7 @@ public class Menu {
 
     // Method to clear the console.
     public final void clearConsole() {
-        IntStream.rangeClosed(0,60).forEach( i -> System.out.println());
+        IntStream.rangeClosed(0, 60).forEach(i -> System.out.println());
     }
 
 }

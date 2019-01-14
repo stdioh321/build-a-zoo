@@ -14,37 +14,19 @@ public class Animal {
         this.favoriteFood = favoriteFood;
     }
 
-    public Animal(String name, String favoriteFood, List<Animal> friends) {
-        this.name = name;
-        this.favoriteFood = favoriteFood;
-        this.friends = friends;
-    }
-
     public List<Animal> getFriends() {
         return friends;
-    }
-
-    public void setFriends(List<Animal> friends) {
-        this.friends = friends;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getFavoriteFood() {
         return favoriteFood;
     }
 
-    public void setFavoriteFood(String favoriteFood) {
-        this.favoriteFood = favoriteFood;
-    }
-
-    public boolean stablishFriendship(Animal newFriend) {
+    public boolean establishFriendship(Animal newFriend) {
         if (this.getFriends().contains(newFriend) || newFriend.getFriends().contains(this)
                 || this.equals(newFriend)) {
             return false;
@@ -56,12 +38,8 @@ public class Animal {
     }
 
     public boolean loseFriendship(Animal oldFriend) {
-        try {
-            if (!this.getFriends().contains(oldFriend) || !oldFriend.getFriends().contains(this)) {
-                return false;
-            }
-        } catch (Exception exc) {
-
+        if (!this.getFriends().contains(oldFriend) || !oldFriend.getFriends().contains(this)) {
+            return false;
         }
 
         this.getFriends().remove(oldFriend);
@@ -88,7 +66,7 @@ public class Animal {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(name, favoriteFood, friends);
     }
+
 }

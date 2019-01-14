@@ -4,7 +4,9 @@ import animals.model.Animal;
 import animals.model.Chicken;
 import animals.model.Dog;
 import animals.model.Parrot;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
@@ -14,23 +16,19 @@ public class AnimalHandler {
     private List<Animal> listAnimals = new ArrayList<>();
 
     // Add some animals objects to a list
-    public void startAnimals(String jsonFileName) {
-        try {
-            // Object to handle the list of animals that are stored in a handler file.
-            JsonHandler jHandler = new JsonHandler(jsonFileName);
-            List<Dog> dogsList = jHandler.getDogs();
-            List<Parrot> parrotsList = jHandler.getParrots();
-            List<Chicken> chickensList = jHandler.getChicken();
+    public void startAnimals(String jsonResourcePath) throws IOException, ParseException {
+        // Object to handle the list of animals that are stored in a handler file.
+        JsonHandler jHandler = new JsonHandler(jsonResourcePath);
+        List<Dog> dogsList = jHandler.getDogs();
+        List<Parrot> parrotsList = jHandler.getParrots();
+        List<Chicken> chickensList = jHandler.getChicken();
 
-            // Add dogs to the main list of animals
-            dogsList.forEach(tmpDog -> listAnimals.add(tmpDog));
-            // Add parrots to the main list of animals
-            parrotsList.forEach(tmpParrot -> listAnimals.add(tmpParrot));
-            // Add chickens to the main list of animals
-            chickensList.forEach(tmpChicken -> listAnimals.add(tmpChicken));
-        } catch (Exception e) {
-
-        }
+        // Add dogs to the main list of animals
+        dogsList.forEach(tmpDog -> listAnimals.add(tmpDog));
+        // Add parrots to the main list of animals
+        parrotsList.forEach(tmpParrot -> listAnimals.add(tmpParrot));
+        // Add chickens to the main list of animals
+        chickensList.forEach(tmpChicken -> listAnimals.add(tmpChicken));
 
     }
 
@@ -49,7 +47,6 @@ public class AnimalHandler {
                 }
                 String strFriends = joiner.toString();
                 System.out.print(strFriends);
-
             }
 
             System.out.println();
@@ -60,32 +57,28 @@ public class AnimalHandler {
     public void liveOneDay(List<Animal> animals) {
 
         // Remove one friend of each animal if there is any
-        animals.forEach((currAnimal) -> {
-            try {
-                if (currAnimal.getFriends().size() > 0) {
-                    if (currAnimal.loseFriendship(currAnimal.getFriends().get(0))) {
-                        System.out.println(currAnimal.getName() + " has lost friendship with "
-                                + currAnimal.getFriends().get(0).getName());
-                    }
+        animals.forEach(currAnimal -> {
+            if (currAnimal.getFriends().size() > 0) {
+                if (currAnimal.loseFriendship(currAnimal.getFriends().get(0))) {
+                    System.out.println(currAnimal.getName() + " has lost friendship with "
+                            + currAnimal.getFriends().get(0).getName());
                 }
-
-            } catch (Exception exc) {
-
             }
+
         });
         System.out.println("------------------------------------------------------------");
+
         // Insert one friend for each animal
         for (Animal currAnimal : animals) {
             while (true) {
                 Animal tmpAnimal = animals.get(randomInt(animals.size()));
-                if (currAnimal.stablishFriendship(tmpAnimal)) {
+                if (currAnimal.establishFriendship(tmpAnimal)) {
                     System.out.println(
                             currAnimal.getName() + " now is friends with " + tmpAnimal.getName());
                     break;
                 }
 
             }
-
         }
     }
 

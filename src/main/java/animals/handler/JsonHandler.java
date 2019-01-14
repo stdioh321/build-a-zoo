@@ -1,5 +1,6 @@
 package animals.handler;
 
+import animals.model.Animal;
 import animals.model.Chicken;
 import animals.model.Dog;
 import animals.model.Parrot;
@@ -12,7 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class JsonHandler {
@@ -33,14 +33,12 @@ public class JsonHandler {
      */
     public List<Dog> getDogs() {
         List<Dog> dogs = new ArrayList<>();
-        JSONArray jDogs = (JSONArray) this.mainJsonObject.get("dog");
-        Iterator itDog = jDogs.iterator();
 
-        while (itDog.hasNext()) {
-            JSONObject tmpDog = (JSONObject) itDog.next();
-            dogs.add(new Dog((String) tmpDog.get("name"), (String) tmpDog.get("favoriteFood"),
-                    (String) tmpDog.get("dogType")));
-        }
+        List<JSONObject> jsonObjectList = toJSONObject((JSONArray) this.mainJsonObject.get("dog"));
+        jsonObjectList.stream().forEach(jsonObject -> {
+            dogs.add(toDog(jsonObject));
+        });
+
         return dogs;
     }
 
@@ -51,14 +49,12 @@ public class JsonHandler {
      */
     public List<Parrot> getParrots() {
         List<Parrot> parrots = new ArrayList<>();
-        JSONArray jParrots = (JSONArray) this.mainJsonObject.get("parrot");
-        Iterator itParrot = jParrots.iterator();
-        while (itParrot.hasNext()) {
-            JSONObject tmpParrot = (JSONObject) itParrot.next();
-            parrots.add(new Parrot((String) tmpParrot.get("name"),
-                    (String) tmpParrot.get("favoriteFood"), (boolean) tmpParrot.get("speak"),
-                    Float.parseFloat(((String) tmpParrot.get("wingLength")))));
-        }
+
+        List<JSONObject> jsonObjectList = toJSONObject(
+                (JSONArray) this.mainJsonObject.get("parrot"));
+        jsonObjectList.stream().forEach(jsonObject -> {
+            parrots.add(toParrot(jsonObject));
+        });
 
         return parrots;
     }
@@ -70,15 +66,44 @@ public class JsonHandler {
      */
     public List<Chicken> getChicken() {
         List<Chicken> chickens = new ArrayList<>();
-        JSONArray jChickens = (JSONArray) this.mainJsonObject.get("chicken");
-        Iterator itChicken = jChickens.iterator();
-        while (itChicken.hasNext()) {
-            JSONObject tmpChicken = (JSONObject) itChicken.next();
-            chickens.add(new Chicken((String) tmpChicken.get("name"),
-                    (String) tmpChicken.get("favoriteFood"), (boolean) tmpChicken.get("broiler"),
-                    Float.parseFloat(((String) tmpChicken.get("wingLength")))));
-        }
+
+        List<JSONObject> jsonObjectList = toJSONObject(
+                (JSONArray) this.mainJsonObject.get("chicken"));
+        jsonObjectList.stream().forEach(jsonObject -> {
+            chickens.add(toChicken(jsonObject));
+        });
 
         return chickens;
     }
+
+    public List<Animal> getAnimals(){
+        List<Animal> animals = new ArrayList<>();
+        animals.addAll(getDogs());
+        animals.addAll(getParrots());
+        animals.addAll(getChicken());
+        return animals;
+    }
+
+    public List<JSONObject> toJSONObject(JSONArray jsonArray) {
+        List<JSONObject> jsonObjectList = new ArrayList<>();
+        jsonArray.stream().forEach(s -> jsonObjectList.add((JSONObject) s));
+        return jsonObjectList;
+    }
+
+
+    public static Dog toDog(JSONObject json) {
+        return new Dog((String) json.get("name"), (String) json.get("favoriteFood"),
+                (String) json.get("dogType"));
+    }
+
+    public static Parrot toParrot(JSONObject json) {
+        return new Parrot((String) json.get("name"), (String) json.get("favoriteFood"),
+                (boolean) json.get("speak"), Float.parseFloat(((String) json.get("wingLength"))));
+    }
+
+    public static Chicken toChicken(JSONObject json) {
+        return new Chicken((String) json.get("name"), (String) json.get("favoriteFood"),
+                (boolean) json.get("broiler"), Float.parseFloat(((String) json.get("wingLength"))));
+    }
+
 }

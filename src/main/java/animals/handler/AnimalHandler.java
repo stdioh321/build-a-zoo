@@ -1,9 +1,6 @@
 package animals.handler;
 
 import animals.model.Animal;
-import animals.model.Chicken;
-import animals.model.Dog;
-import animals.model.Parrot;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
@@ -25,17 +22,7 @@ public class AnimalHandler {
     public void loadFromJsonFile(String jsonResourcePath) throws IOException, ParseException {
         // Object to handle the list of animals that are stored in a handler file.
         JsonHandler jHandler = new JsonHandler(jsonResourcePath);
-        List<Dog> dogsList = jHandler.getDogs();
-        List<Parrot> parrotsList = jHandler.getParrots();
-        List<Chicken> chickensList = jHandler.getChicken();
-
-        // Add dogs to the main list of animals
-        dogsList.forEach(tmpDog -> listAnimals.add(tmpDog));
-        // Add parrots to the main list of animals
-        parrotsList.forEach(tmpParrot -> listAnimals.add(tmpParrot));
-        // Add chickens to the main list of animals
-        chickensList.forEach(tmpChicken -> listAnimals.add(tmpChicken));
-
+        listAnimals.addAll(jHandler.getAnimals());
     }
 
     /**
@@ -74,8 +61,8 @@ public class AnimalHandler {
         animals.forEach(currAnimal -> {
             if (currAnimal.getFriends().size() > 0) {
                 if (currAnimal.loseFriendship(currAnimal.getFriends().get(0))) {
-                    System.out.printf("%s has lost friendship with %s\n", currAnimal.getName()
-                            , currAnimal.getFriends().get(0).getName());
+                    System.out.printf("%s has lost friendship with %s\n", currAnimal.getName(),
+                            currAnimal.getFriends().get(0).getName());
                 }
             }
 
@@ -87,8 +74,8 @@ public class AnimalHandler {
             while (true) {
                 Animal tmpAnimal = animals.get(randomInt(animals.size()));
                 if (currAnimal.establishFriendship(tmpAnimal)) {
-                    System.out.printf("%s now is friends with %s\n",
-                            currAnimal.getName() , tmpAnimal.getName());
+                    System.out.printf("%s now is friends with %s\n", currAnimal.getName(),
+                            tmpAnimal.getName());
                     break;
                 }
 

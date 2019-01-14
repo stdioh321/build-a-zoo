@@ -9,10 +9,10 @@ public class Menu {
 
     private final AnimalHandler animalHandler;
 
-    public Menu(AnimalHandler animalHandler){
+    public Menu(AnimalHandler animalHandler) {
         this.animalHandler = animalHandler;
     }
-    
+
     /**
      * Display the menu cn the console
      *

@@ -28,7 +28,10 @@ public class JsonHandler {
 
     }
 
-    // Reads the dogs on the handler file, and return a list of them
+    /**
+     * Reads the dogs on the handler file, and return a list of them
+      * @return
+     */
     public List<Dog> getDogs() {
         List<Dog> dogs = new ArrayList<>();
         JSONArray jDogs = (JSONArray) this.mainJsonObject.get("dog");
@@ -42,7 +45,10 @@ public class JsonHandler {
         return dogs;
     }
 
-    // Reads the parrots on the handler file, and return a list of them
+    /**
+     * Reads the parrots on the handler file, and return a list of them
+     * @return
+     */
     public List<Parrot> getParrots() {
         List<Parrot> parrots = new ArrayList<>();
         JSONArray jParrots = (JSONArray) this.mainJsonObject.get("parrot");
@@ -57,7 +63,10 @@ public class JsonHandler {
         return parrots;
     }
 
-    // Reads the chickens on the handler file, and return a list of them
+    /**
+     * Reads the chickens on the handler file, and return a list of them
+     * @return
+     */
     public List<Chicken> getChicken() {
         List<Chicken> chickens = new ArrayList<>();
         JSONArray jChickens = (JSONArray) this.mainJsonObject.get("chicken");

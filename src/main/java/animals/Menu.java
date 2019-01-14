@@ -9,7 +9,11 @@ import java.util.stream.IntStream;
 
 public class Menu {
 
-    // Display the menu cn the console
+    /**
+     * Display the menu cn the console
+     * @throws IOException
+     * @throws ParseException
+     */
     public void start() throws IOException, ParseException {
 
         AnimalHandler animalH = new AnimalHandler();
@@ -48,7 +52,9 @@ public class Menu {
         } while (!done);
     }
 
-    // Method to clear the console.
+    /**
+     * Method to clear the console.
+     */
     public final void clearConsole() {
         IntStream.rangeClosed(0, 60).forEach(i -> System.out.println());
     }

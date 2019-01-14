@@ -15,7 +15,12 @@ public class AnimalHandler {
 
     private List<Animal> listAnimals = new ArrayList<>();
 
-    // Add some animals objects to a list
+    /**
+     * Add some animals objects to a list
+     * @param jsonResourcePath
+     * @throws IOException
+     * @throws ParseException
+     */
     public void startAnimals(String jsonResourcePath) throws IOException, ParseException {
         // Object to handle the list of animals that are stored in a handler file.
         JsonHandler jHandler = new JsonHandler(jsonResourcePath);
@@ -32,7 +37,10 @@ public class AnimalHandler {
 
     }
 
-    // Display all the animals and their friends.
+    /**
+     * Display all the animals and their friends.
+     * @param animals
+     */
     public void listAllAnimals(List<Animal> animals) {
         for (Animal a : animals) {
             System.out.println(a.toString());
@@ -53,7 +61,10 @@ public class AnimalHandler {
         }
     }
 
-    // Make each animal lose a friend and get a new one
+    /**
+     * Make each animal lose a friend and get a new one
+     * @param animals
+     */
     public void liveOneDay(List<Animal> animals) {
 
         // Remove one friend of each animal if there is any
@@ -82,7 +93,11 @@ public class AnimalHandler {
         }
     }
 
-    // Generate a random Int value
+    /**
+     * Generate a random Int value
+     * @param max
+     * @return
+     */
     public static int randomInt(int max) {
         return (int) Math.floor(Math.random() * max);
     }

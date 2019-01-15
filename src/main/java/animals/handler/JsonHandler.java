@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonHandler {
-    private JSONObject mainJsonObject;
+    private JSONObject jsonObject;
 
     public JsonHandler(String jsonResourcePath) throws IOException, ParseException {
         InputStream resourceAsStream = JsonHandler.class.getResourceAsStream(jsonResourcePath);
         // Read the file that contains the animals's info
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(new InputStreamReader(resourceAsStream));
-        this.mainJsonObject = (JSONObject) obj;
+        this.jsonObject = (JSONObject) obj;
     }
 
     /**
@@ -34,7 +34,7 @@ public class JsonHandler {
     public List<Dog> getDogs() {
         List<Dog> dogs = new ArrayList<>();
 
-        List<JSONObject> jsonObjectList = toJSONObject((JSONArray) this.mainJsonObject.get("dog"));
+        List<JSONObject> jsonObjectList = toJSONObject((JSONArray) this.jsonObject.get("dog"));
         jsonObjectList.forEach(jsonObject -> dogs.add(toDog(jsonObject)));
 
         return dogs;
@@ -49,7 +49,7 @@ public class JsonHandler {
         List<Parrot> parrots = new ArrayList<>();
 
         List<JSONObject> jsonObjectList = toJSONObject(
-                (JSONArray) this.mainJsonObject.get("parrot"));
+                (JSONArray) this.jsonObject.get("parrot"));
         jsonObjectList.forEach(jsonObject -> parrots.add(toParrot(jsonObject)));
 
         return parrots;
@@ -64,13 +64,13 @@ public class JsonHandler {
         List<Chicken> chickens = new ArrayList<>();
 
         List<JSONObject> jsonObjectList = toJSONObject(
-                (JSONArray) this.mainJsonObject.get("chicken"));
+                (JSONArray) this.jsonObject.get("chicken"));
         jsonObjectList.forEach(jsonObject -> chickens.add(toChicken(jsonObject)));
 
         return chickens;
     }
 
-    public List<Animal> getAnimals(){
+    public List<Animal> getAnimals() {
         List<Animal> animals = new ArrayList<>();
         animals.addAll(getDogs());
         animals.addAll(getParrots());
@@ -83,7 +83,6 @@ public class JsonHandler {
         jsonArray.forEach(s -> jsonObjectList.add((JSONObject) s));
         return jsonObjectList;
     }
-
 
     public static Dog toDog(JSONObject json) {
         return new Dog((String) json.get("name"), (String) json.get("favoriteFood"),

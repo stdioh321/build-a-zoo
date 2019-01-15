@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Animal {
     private String name;
     private String favoriteFood;
-    private List<Animal> friends = new ArrayList<Animal>();
+    private List<Animal> friends = new ArrayList<>();
 
     public Animal(String name, String favoriteFood) {
         this.name = name;

@@ -29,19 +29,16 @@ public class Menu {
             switch (scanner.nextInt()) {
             // 1 - For display all the animals and their friends.
             case 1:
-                clearConsole();
-                animalHandler.listAllAnimals(animalHandler.getListAnimals());
+                doListAllAnimals();
                 break;
             // 2 - For each animal stop being friend with one friend and be friends with
             // another animal
             case 2:
-                clearConsole();
-                animalHandler.liveOneDay(animalHandler.getListAnimals());
+                doLiveOneDay();
                 break;
             // 3 - For exit the program.
             case 3:
-                System.out.println("Leaving....");
-                done = true;
+                done = doExit();
                 break;
             // Case a different option is chosen
             default:
@@ -50,6 +47,21 @@ public class Menu {
             }
 
         } while (!done);
+    }
+
+    private boolean doExit() {
+        System.out.println("Leaving....");
+        return true;
+    }
+
+    private void doListAllAnimals() {
+        clearConsole();
+        animalHandler.printAllAnimals();
+    }
+
+    private void doLiveOneDay() {
+        clearConsole();
+        animalHandler.printLiveOneDay();
     }
 
     /**

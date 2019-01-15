@@ -48,8 +48,7 @@ public class JsonHandler {
     public List<Parrot> getParrots() {
         List<Parrot> parrots = new ArrayList<>();
 
-        List<JSONObject> jsonObjectList = toJSONObject(
-                (JSONArray) this.jsonObject.get("parrot"));
+        List<JSONObject> jsonObjectList = toJSONObject((JSONArray) this.jsonObject.get("parrot"));
         jsonObjectList.forEach(jsonObject -> parrots.add(toParrot(jsonObject)));
 
         return parrots;
@@ -63,8 +62,7 @@ public class JsonHandler {
     public List<Chicken> getChicken() {
         List<Chicken> chickens = new ArrayList<>();
 
-        List<JSONObject> jsonObjectList = toJSONObject(
-                (JSONArray) this.jsonObject.get("chicken"));
+        List<JSONObject> jsonObjectList = toJSONObject((JSONArray) this.jsonObject.get("chicken"));
         jsonObjectList.forEach(jsonObject -> chickens.add(toChicken(jsonObject)));
 
         return chickens;

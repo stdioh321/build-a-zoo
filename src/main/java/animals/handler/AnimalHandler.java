@@ -10,7 +10,7 @@ import java.util.StringJoiner;
 
 public class AnimalHandler {
 
-    private List<Animal> listAnimals = new ArrayList<>();
+    private List<Animal> animals = new ArrayList<>();
 
     /**
      * Add some animals objects to a list
@@ -22,15 +22,14 @@ public class AnimalHandler {
     public void loadFromJsonFile(String jsonResourcePath) throws IOException, ParseException {
         // Object to handle the list of animals that are stored in a handler file.
         JsonHandler jHandler = new JsonHandler(jsonResourcePath);
-        listAnimals.addAll(jHandler.getAnimals());
+        animals.addAll(jHandler.getAnimals());
     }
 
     /**
      * Display all the animals and their friends.
      * 
-     * @param animals
      */
-    public void listAllAnimals(List<Animal> animals) {
+    public void printAllAnimals() {
         for (Animal a : animals) {
             System.out.println(a.toString());
             if (a.getFriends().size() < 1) {
@@ -53,9 +52,8 @@ public class AnimalHandler {
     /**
      * Make each animal lose a friend and get a new one
      * 
-     * @param animals
      */
-    public void liveOneDay(List<Animal> animals) {
+    public void printLiveOneDay() {
 
         // Remove one friend of each animal if there is any
         animals.forEach(currAnimal -> {
@@ -93,8 +91,8 @@ public class AnimalHandler {
         return (int) Math.floor(Math.random() * max);
     }
 
-    public List<Animal> getListAnimals() {
-        return listAnimals;
+    public List<Animal> getAnimals() {
+        return animals;
     }
 
 }

@@ -18,3 +18,6 @@ readme:
 
 clean:
 	mvn clean
+
+dist:
+	zip -9 -r --exclude=*.git* --exclude=*.idea* dist.zip .

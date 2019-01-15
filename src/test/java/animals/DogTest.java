@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class DogTest {
 
@@ -22,4 +22,10 @@ public class DogTest {
     public void size() {
         assertTrue(jsonHandler.getDogs().size() > 0);
     }
+
+    @Test
+    public void properties() {
+        jsonHandler.getDogs().forEach( dog -> assertNotNull(dog.getDogType()));
+    }
+
 }

@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class ChickenTest {
@@ -22,4 +23,10 @@ public class ChickenTest {
     public void size() {
         assertTrue(jsonHandler.getChicken().size() > 0);
     }
+
+    @Test
+    public void properties() {
+        jsonHandler.getChicken().forEach( chicken -> assertNotNull(chicken.getName()));
+    }
+
 }

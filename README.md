@@ -1,12 +1,23 @@
 # Building a Zoo
 
+### Prereq
 
-## How to run
+* Java 8+
+* Make (Optional)
 
-```sh
+### How to run
+
+```
 mvn package
 mvn exec:java -D"exec.mainClass=animals.Main"
 ```
+
+### Test
+
+```
+mvn test
+```
+
 
 ### Features
 
@@ -27,4 +38,3 @@ Menu.doLiveOneDay()
 ```
 Menu.doExit()
 ```
-

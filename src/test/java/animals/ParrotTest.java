@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class ParrotTest {
@@ -21,6 +22,11 @@ public class ParrotTest {
     @Test
     public void size() {
         assertTrue(jsonHandler.getParrots().size() > 0);
+    }
+
+    @Test
+    public void properties() {
+        jsonHandler.getParrots().forEach( parrot -> assertNotNull(parrot.getName()));
     }
 
 }

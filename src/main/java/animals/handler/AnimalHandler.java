@@ -30,16 +30,15 @@ public class AnimalHandler {
      * 
      */
     public void printAllAnimals() {
-        for (Animal a : animals) {
-            System.out.println(a.toString());
-            if (a.getFriends().size() < 1) {
+        for (Animal animal : animals) {
+            System.out.println(animal.toString());
+            if (animal.getFriends().size() < 1) {
                 System.out.print("[Have no Friends]");
             } else {
                 System.out.print("Friends: ");
                 StringJoiner joiner = new StringJoiner(", ");
-                for (Animal tmpAnimal : a.getFriends()) {
-                    String name = tmpAnimal.getName();
-                    joiner.add(name);
+                for (Animal friend : animal.getFriends()) {
+                    joiner.add(friend.getName());
                 }
                 String strFriends = joiner.toString();
                 System.out.print(strFriends);
@@ -70,10 +69,10 @@ public class AnimalHandler {
         // Insert one friend for each animal
         for (Animal currAnimal : animals) {
             while (true) {
-                Animal tmpAnimal = animals.get(randomInt(animals.size()));
-                if (currAnimal.establishFriendship(tmpAnimal)) {
+                Animal randomAnimal = animals.get(randomInt(animals.size()));
+                if (currAnimal.establishFriendship(randomAnimal)) {
                     System.out.printf("%s now is friends with %s\n", currAnimal.getName(),
-                            tmpAnimal.getName());
+                            randomAnimal.getName());
                     break;
                 }
 

@@ -7,10 +7,10 @@ import java.util.stream.IntStream;
 
 public class Menu {
 
-    private final Zoo animalHandler;
+    private final Zoo zoo;
 
     public Menu(Zoo animalHandler) {
-        this.animalHandler = animalHandler;
+        this.zoo = animalHandler;
     }
 
     /**
@@ -56,12 +56,12 @@ public class Menu {
 
     private void doListAllAnimals() {
         clearConsole();
-        animalHandler.printAllAnimals();
+        zoo.printAllAnimals();
     }
 
     private void doLiveOneDay() {
         clearConsole();
-        animalHandler.printLiveOneDay();
+        zoo.printLiveOneDay();
     }
 
     /**

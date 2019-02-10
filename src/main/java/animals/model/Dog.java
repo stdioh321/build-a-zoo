@@ -13,9 +13,8 @@ public class Dog extends Animal {
     }
 
     @Override
-    public String toString() {
-        return "Dog{" + "Name='" + this.getName() + '\'' + ", Favorite Food='"
-                + this.getFavoriteFood() + '\'' + ", Dog Type='" + dogType + '\'' + '}';
+    public String toString(){
+        return super.toString() + String.format("dogType: %s, ", dogType);
     }
 
     public Dog(String name, String favoriteFood, String dogType) {

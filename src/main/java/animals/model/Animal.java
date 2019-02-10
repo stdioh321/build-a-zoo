@@ -18,6 +18,11 @@ public abstract class Animal implements Serializable {
     @XmlAttribute
     private String favoriteFood;
 
+    @Override
+    public String toString(){
+        return String.format("Name: %s, FavoriteFood: %s, ", name, favoriteFood);
+    }
+
     @XmlElementWrapper()
     @XmlElements({ @XmlElement(name = "bird", type = Bird.class),
             @XmlElement(name = "chicken", type = Chicken.class),
@@ -53,10 +58,6 @@ public abstract class Animal implements Serializable {
         return this.friends.remove(oldFriend);
     }
 
-    @Override
-    public String toString() {
-        return "Animal{" + "name='" + name + '\'' + ", favoriteFood='" + favoriteFood + '\'' + '}';
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -79,8 +80,7 @@ public abstract class Animal implements Serializable {
         for (Animal friend : friends) {
             joiner.add(friend.getName());
         }
-        String strFriends = joiner.toString();
-        out.print(strFriends);
+        out.print(joiner.toString());
     }
 
     public static Predicate<Animal> isAnimalByClass(Class clazz) {

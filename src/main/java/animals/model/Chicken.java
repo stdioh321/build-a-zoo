@@ -19,9 +19,8 @@ public class Chicken extends Bird {
     }
 
     @Override
-    public String toString() {
-        return "Chicken{" + "Name='" + this.getName() + '\'' + ", Favorite Food='"
-                + this.getFavoriteFood() + '\'' + ", Broiler='" + broiler + '\'' + ", Wing Length='"
-                + this.getWingLength() + '\'' + '}';
+    public String toString(){
+        return super.toString() + String.format("broiler: %b, ", broiler);
     }
+
 }

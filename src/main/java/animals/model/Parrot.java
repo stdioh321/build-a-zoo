@@ -18,10 +18,10 @@ public class Parrot extends Bird {
         return speak;
     }
 
+
     @Override
-    public String toString() {
-        return "Parrot{" + "Name='" + this.getName() + '\'' + ", Favorite Food='"
-                + this.getFavoriteFood() + '\'' + ", Speak='" + speak + '\'' + ", Wings Length='"
-                + this.getWingLength() + '\'' + '}';
+    public String toString(){
+        return super.toString() + String.format("speak: %b, ", speak);
     }
+
 }

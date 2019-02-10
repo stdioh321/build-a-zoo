@@ -19,4 +19,10 @@ public class Bird extends Animal {
         return wingLength;
     }
 
+    @Override
+    public String toString(){
+        return super.toString() + String.format("wingLength: %.2f, ", wingLength);
+    }
+
+
 }

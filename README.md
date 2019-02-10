@@ -3,6 +3,7 @@
 ### Prereq
 
 * Java 8+
+* Maven 3
 * Make (Optional)
 
 ### How to run

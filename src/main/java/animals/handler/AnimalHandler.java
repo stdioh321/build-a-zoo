@@ -57,9 +57,9 @@ public class AnimalHandler {
         // Remove one friend of each animal if there is any
         animals.forEach(currAnimal -> {
             if (currAnimal.getFriends().size() > 0) {
-                if (currAnimal.loseFriendship(currAnimal.getFriends().get(0))) {
-                    System.out.printf("%s has lost friendship with %s\n", currAnimal.getName(),
-                            currAnimal.getFriends().get(0).getName());
+                Animal tmpAnimal = currAnimal.getFriends().get(0);
+                if (currAnimal.loseFriendship(tmpAnimal)) {
+                    System.out.printf("%s has lost friendship with %s\n", currAnimal.getName(),tmpAnimal.getName());
                 }
             }
 

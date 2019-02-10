@@ -1,8 +1,7 @@
 package animals;
 
 import animals.Main;
-import animals.model.Animal;
-import animals.model.Dog;
+import animals.model.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -10,6 +9,8 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class Util {
 
@@ -55,7 +56,25 @@ public final class Util {
 
         File file = new File(resourcePath);
         marshaller.marshal(object, file);
+    }
 
+    public static List<Animal> initialAnimals() {
+        List<Animal> animals = new ArrayList<>();
+
+        animals.add(new Dog("Killian", "Meat", "Hunting dog"));
+        animals.add(new Parrot("Parrot one", "Grain", false, 0.25f));
+        animals.add(new Chicken("Chicken one", "Corn", true, 0.75f));
+        animals.add(new Dog("Rocky", "“Fresh meat", "Working dog"));
+        animals.add(new Parrot("Parrot two", "Corn", true, 0.5f));
+        animals.add(new Dog("Peter", "“Pedigree", "Sport dog"));
+        animals.add(new Chicken("Rocky", "Corn", false, 0.75f));
+
+        return animals;
+    }
+
+    public static void writeAnimalsXML() throws JAXBException {
+        Zoo zoo = new Zoo(initialAnimals());
+        marshallObject("zoo.xml", Zoo.class, zoo);
     }
 
 }

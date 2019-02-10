@@ -7,9 +7,9 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.StringJoiner;
+import java.util.function.Predicate;
 
 @XmlType
-@XmlSeeAlso({ Dog.class })
 public abstract class Animal implements Serializable {
 
     @XmlAttribute
@@ -81,6 +81,10 @@ public abstract class Animal implements Serializable {
         }
         String strFriends = joiner.toString();
         out.print(strFriends);
+    }
+
+    public static Predicate<Animal> isAnimalByClass(Class clazz) {
+        return animal -> animal.getClass().equals(clazz);
     }
 
 }

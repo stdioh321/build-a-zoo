@@ -26,4 +26,5 @@ public class Dog extends Animal {
     public String getDogType() {
         return dogType;
     }
+
 }

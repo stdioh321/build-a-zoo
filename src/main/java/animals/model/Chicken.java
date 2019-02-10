@@ -1,6 +1,9 @@
 package animals.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+
 public class Chicken extends Bird {
+    @XmlAttribute
     private boolean broiler;
 
     public Chicken() {
@@ -13,10 +16,6 @@ public class Chicken extends Bird {
 
     public boolean isBroiler() {
         return broiler;
-    }
-
-    public void setBroiler(boolean broiler) {
-        this.broiler = broiler;
     }
 
     @Override

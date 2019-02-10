@@ -4,49 +4,23 @@
         <dog dogType="Hunting dog" name="Killian" favoriteFood="Meat">
             <friends/>
         </dog>
-        <dog dogType="Working dog" name="Rocky" favoriteFood="Fresh meat">
-            <friends/>
-        </dog>
-        <dog dogType="Sport dog" name="Peter" favoriteFood="Pedigree">
-            <friends/>
-        </dog>
-        <dog dogType="House dog" name="Bubbles" favoriteFood="Chicken">
-            <friends/>
-        </dog>
         <parrot speak="false" wingLength="0.25" name="Parrot one" favoriteFood="Grain">
             <friends/>
         </parrot>
+        <chicken broiler="true" wingLength="0.75" name="Chicken one" favoriteFood="Corn">
+            <friends/>
+        </chicken>
+        <dog dogType="Working dog" name="Rocky" favoriteFood="“Fresh meat">
+            <friends/>
+        </dog>
         <parrot speak="true" wingLength="0.5" name="Parrot two" favoriteFood="Corn">
             <friends/>
         </parrot>
-        <chicken wingLength="0.75" name="Chicken one" favoriteFood="Corn">
+        <dog dogType="Sport dog" name="Peter" favoriteFood="“Pedigree">
             <friends/>
-            <broiler>true</broiler>
-        </chicken>
-        <chicken wingLength="0.75" name="Chicken two" favoriteFood="Corn">
+        </dog>
+        <chicken broiler="false" wingLength="0.75" name="Rocky" favoriteFood="Corn">
             <friends/>
-            <broiler>false</broiler>
         </chicken>
-        <dog dogType="DogType 16" name="Dog 37" favoriteFood="Food 36">
-            <friends>
-                <dog dogType="DogType 80" name="Dog 11" favoriteFood="Food 3">
-                    <friends/>
-                </dog>
-            </friends>
-        </dog>
-        <dog dogType="DogType 38" name="Dog 79" favoriteFood="Food 48">
-            <friends>
-                <dog dogType="DogType 12" name="Dog 78" favoriteFood="Food 37">
-                    <friends/>
-                </dog>
-            </friends>
-        </dog>
-        <dog dogType="DogType 17" name="Dog 36" favoriteFood="Food 44">
-            <friends>
-                <dog dogType="DogType 75" name="Dog 50" favoriteFood="Food 27">
-                    <friends/>
-                </dog>
-            </friends>
-        </dog>
     </animals>
 </zoo>

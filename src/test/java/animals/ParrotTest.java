@@ -26,7 +26,7 @@ public class ParrotTest {
 
     @Test
     public void properties() {
-        jsonHandler.getParrots().forEach( parrot -> assertNotNull(parrot.getName()));
+        jsonHandler.getParrots().forEach(parrot -> assertNotNull(parrot.getName()));
     }
 
 }

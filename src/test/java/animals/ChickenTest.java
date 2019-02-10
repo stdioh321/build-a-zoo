@@ -26,7 +26,7 @@ public class ChickenTest {
 
     @Test
     public void properties() {
-        jsonHandler.getChicken().forEach( chicken -> assertNotNull(chicken.getName()));
+        jsonHandler.getChicken().forEach(chicken -> assertNotNull(chicken.getName()));
     }
 
 }

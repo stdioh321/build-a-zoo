@@ -1,13 +1,11 @@
 package animals.model;
 
-public class Parrot extends Animal {
+public class Parrot extends Bird {
     private boolean speak;
-    private Float wingLength;
 
     public Parrot(String name, String favoriteFood, boolean speak, Float wingLength) {
-        super(name, favoriteFood);
+        super(name, favoriteFood, wingLength);
         this.speak = speak;
-        this.wingLength = wingLength;
     }
 
     public boolean isSpeak() {
@@ -18,18 +16,10 @@ public class Parrot extends Animal {
         this.speak = speak;
     }
 
-    public Float getWingLength() {
-        return wingLength;
-    }
-
-    public void setWingLength(Float wingLength) {
-        this.wingLength = wingLength;
-    }
-
     @Override
     public String toString() {
         return "Parrot{" + "Name='" + this.getName() + '\'' + ", Favorite Food='"
                 + this.getFavoriteFood() + '\'' + ", Speak='" + speak + '\'' + ", Wings Length='"
-                + wingLength + '\'' + '}';
+                + this.getWingLength() + '\'' + '}';
     }
 }

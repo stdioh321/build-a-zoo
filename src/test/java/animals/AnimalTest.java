@@ -26,7 +26,7 @@ public class AnimalTest {
 
     @Test
     public void properties() {
-        jsonHandler.getAnimals().forEach( animal -> assertNotNull(animal.getName()));
+        jsonHandler.getAnimals().forEach(animal -> assertNotNull(animal.getName()));
     }
 
 }

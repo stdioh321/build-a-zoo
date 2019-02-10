@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Animal {
+public abstract class Animal {
     private String name;
     private String favoriteFood;
     private List<Animal> friends = new ArrayList<>();

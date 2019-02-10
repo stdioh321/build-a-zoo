@@ -75,8 +75,8 @@ public final class Util {
         return new Zoo(initialAnimals());
     }
 
-    public static void writeAnimalsXML() throws JAXBException {
-        marshallObject("zoo.xml", Zoo.class, initialZoo());
+    public static void writeAnimalsXML(String filePath) throws JAXBException {
+        marshallObject(filePath, Zoo.class, initialZoo());
     }
 
 }

@@ -80,6 +80,7 @@ public abstract class Animal implements Serializable {
         for (Animal friend : friends) {
             joiner.add(friend.getName());
         }
+        out.print("Friends: ");
         out.print(joiner.toString());
     }
 

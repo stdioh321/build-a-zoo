@@ -3,6 +3,7 @@ package animals.model;
 import javax.xml.bind.annotation.XmlAttribute;
 
 public class Chicken extends Bird {
+
     @XmlAttribute
     private boolean broiler;
 

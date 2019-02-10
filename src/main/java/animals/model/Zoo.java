@@ -37,7 +37,6 @@ public class Zoo implements Serializable {
             if (animal.getFriends().isEmpty()) {
                 System.out.print("[Have no Friends]");
             } else {
-                System.out.print("Friends: ");
                 animal.printFriends(System.out);
             }
 
@@ -47,15 +46,13 @@ public class Zoo implements Serializable {
 
     /**
      * Make each animal lose a friend and get a new one
-     */
+     **/
     public void printLiveOneDay() {
 
-        // Remove one friend of each animal if there is any
         removeOneFriendOfEachAnimalIfThereIsAny();
 
         System.out.println("------------------------------------------------------------");
 
-        // Insert one friend for each animal
         insertOneFriendForEachAnimal();
     }
 

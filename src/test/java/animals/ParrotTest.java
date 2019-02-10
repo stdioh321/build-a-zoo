@@ -6,7 +6,6 @@ import animals.model.Zoo;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.xml.bind.JAXBException;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,8 +18,8 @@ public class ParrotTest {
     private Set<Animal> perrots;
 
     @Before
-    public void setUp() throws JAXBException {
-        zoo = (Zoo) Util.getResourceUnMarshall("/zoo.xml", Zoo.class);
+    public void setUp() {
+        zoo = Util.initialZoo();
         perrots = zoo.getAnimals().stream().filter(Animal.isAnimalByClass(Parrot.class))
                 .collect(Collectors.toSet());
     }

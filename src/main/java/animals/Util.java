@@ -1,6 +1,5 @@
 package animals;
 
-import animals.Main;
 import animals.model.*;
 
 import javax.xml.bind.JAXBContext;
@@ -72,9 +71,12 @@ public final class Util {
         return animals;
     }
 
+    public static Zoo initialZoo(){
+        return new Zoo(initialAnimals());
+    }
+
     public static void writeAnimalsXML() throws JAXBException {
-        Zoo zoo = new Zoo(initialAnimals());
-        marshallObject("zoo.xml", Zoo.class, zoo);
+        marshallObject("zoo.xml", Zoo.class, initialZoo());
     }
 
 }

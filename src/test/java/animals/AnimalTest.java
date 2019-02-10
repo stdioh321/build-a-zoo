@@ -4,8 +4,6 @@ import animals.model.Zoo;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.xml.bind.JAXBException;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -14,8 +12,8 @@ public class AnimalTest {
     private Zoo zoo;
 
     @Before
-    public void setUp() throws JAXBException {
-        zoo = (Zoo) Util.getResourceUnMarshall("/zoo.xml", Zoo.class);
+    public void setUp() {
+        zoo = Util.initialZoo();
     }
 
     @Test

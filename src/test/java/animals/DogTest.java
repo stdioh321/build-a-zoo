@@ -1,17 +1,12 @@
 package animals;
 
 import animals.model.Animal;
-import animals.model.Chicken;
 import animals.model.Dog;
 import animals.model.Zoo;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.xml.bind.JAXBException;
-import java.util.Collections;
-import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertNotNull;
@@ -23,8 +18,8 @@ public class DogTest {
     private Set<Animal> dogs;
 
     @Before
-    public void setUp() throws JAXBException {
-        zoo = (Zoo) Util.getResourceUnMarshall("/zoo.xml", Zoo.class);
+    public void setUp() {
+        zoo = Util.initialZoo();
         dogs = zoo.getAnimals().stream().filter(Animal.isAnimalByClass(Dog.class))
                 .collect(Collectors.toSet());
     }

@@ -1,15 +1,15 @@
 package animals;
 
-import animals.handler.AnimalHandler;
+import animals.handler.Zoo;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class Menu {
 
-    private final AnimalHandler animalHandler;
+    private final Zoo animalHandler;
 
-    public Menu(AnimalHandler animalHandler) {
+    public Menu(Zoo animalHandler) {
         this.animalHandler = animalHandler;
     }
 

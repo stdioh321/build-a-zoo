@@ -1,20 +1,22 @@
 package animals.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintStream;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.StringJoiner;
 
 public abstract class Animal {
     private String name;
     private String favoriteFood;
-    private List<Animal> friends = new ArrayList<>();
+    private Set<Animal> friends = new HashSet<>();
 
     public Animal(String name, String favoriteFood) {
         this.name = name;
         this.favoriteFood = favoriteFood;
     }
 
-    public List<Animal> getFriends() {
+    public Set<Animal> getFriends() {
         return friends;
     }
 
@@ -27,24 +29,11 @@ public abstract class Animal {
     }
 
     public boolean establishFriendship(Animal newFriend) {
-        if (this.getFriends().contains(newFriend) || newFriend.getFriends().contains(this)
-                || this.equals(newFriend)) {
-            return false;
-        }
-        this.getFriends().add(newFriend);
-        newFriend.getFriends().add(this);
-
-        return true;
+        return this.friends.add(newFriend);
     }
 
     public boolean loseFriendship(Animal oldFriend) {
-        if (!this.getFriends().contains(oldFriend) || !oldFriend.getFriends().contains(this)) {
-            return false;
-        }
-
-        this.getFriends().remove(oldFriend);
-        oldFriend.getFriends().remove(this);
-        return true;
+        return this.friends.remove(oldFriend);
     }
 
     @Override
@@ -52,21 +41,28 @@ public abstract class Animal {
         return "Animal{" + "name='" + name + '\'' + ", favoriteFood='" + favoriteFood + '\'' + '}';
     }
 
+
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Animal animal = (Animal) o;
-        return Objects.equals(name, animal.name)
-                && Objects.equals(favoriteFood, animal.favoriteFood)
-                && Objects.equals(friends, animal.friends);
+        return Objects.equals(name, animal.name) &&
+                Objects.equals(favoriteFood, animal.favoriteFood);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, favoriteFood, friends);
+        return Objects.hash(name, favoriteFood);
+    }
+
+    public void printFriends(PrintStream out){
+        StringJoiner joiner = new StringJoiner(", ");
+        for (Animal friend : friends) {
+            joiner.add(friend.getName());
+        }
+        String strFriends = joiner.toString();
+        out.print(strFriends);
     }
 
 }

@@ -37,3 +37,4 @@ bin
 *.bak
 
 dist.zip
+.attach_pid*

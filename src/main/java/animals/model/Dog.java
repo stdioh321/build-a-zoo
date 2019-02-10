@@ -1,7 +1,16 @@
 package animals.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType
 public class Dog extends Animal {
+
+    @XmlAttribute
     private String dogType;
+
+    public Dog() {
+    }
 
     @Override
     public String toString() {
@@ -16,9 +25,5 @@ public class Dog extends Animal {
 
     public String getDogType() {
         return dogType;
-    }
-
-    public void setDogType(String dogType) {
-        this.dogType = dogType;
     }
 }

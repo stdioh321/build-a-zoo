@@ -1,15 +1,32 @@
 package animals.model;
 
+import javax.xml.bind.annotation.*;
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.StringJoiner;
 
-public abstract class Animal {
+@XmlType
+@XmlSeeAlso({ Dog.class })
+public abstract class Animal implements Serializable {
+
+    @XmlAttribute
     private String name;
+
+    @XmlAttribute
     private String favoriteFood;
+
+    @XmlElementWrapper()
+    @XmlElements({ @XmlElement(name = "bird", type = Bird.class),
+            @XmlElement(name = "chicken", type = Chicken.class),
+            @XmlElement(name = "dog", type = Dog.class),
+            @XmlElement(name = "parrot", type = Parrot.class) })
     private Set<Animal> friends = new HashSet<>();
+
+    public Animal() {
+    }
 
     public Animal(String name, String favoriteFood) {
         this.name = name;
@@ -41,14 +58,15 @@ public abstract class Animal {
         return "Animal{" + "name='" + name + '\'' + ", favoriteFood='" + favoriteFood + '\'' + '}';
     }
 
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Animal animal = (Animal) o;
-        return Objects.equals(name, animal.name) &&
-                Objects.equals(favoriteFood, animal.favoriteFood);
+        return Objects.equals(name, animal.name)
+                && Objects.equals(favoriteFood, animal.favoriteFood);
     }
 
     @Override
@@ -56,7 +74,7 @@ public abstract class Animal {
         return Objects.hash(name, favoriteFood);
     }
 
-    public void printFriends(PrintStream out){
+    public void printFriends(PrintStream out) {
         StringJoiner joiner = new StringJoiner(", ");
         for (Animal friend : friends) {
             joiner.add(friend.getName());

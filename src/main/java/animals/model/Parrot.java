@@ -1,7 +1,13 @@
 package animals.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+
 public class Parrot extends Bird {
+    @XmlAttribute
     private boolean speak;
+
+    public Parrot() {
+    }
 
     public Parrot(String name, String favoriteFood, boolean speak, Float wingLength) {
         super(name, favoriteFood, wingLength);
@@ -10,10 +16,6 @@ public class Parrot extends Bird {
 
     public boolean isSpeak() {
         return speak;
-    }
-
-    public void setSpeak(boolean speak) {
-        this.speak = speak;
     }
 
     @Override

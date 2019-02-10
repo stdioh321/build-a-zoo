@@ -1,17 +1,25 @@
-package animals.handler;
+package animals.model;
 
-import animals.model.Animal;
+import animals.Util;
 
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Zoo {
+@XmlRootElement
+public class Zoo implements Serializable {
 
+    @XmlElementWrapper
+    @XmlElements({ @XmlElement(name = "bird", type = Bird.class),
+            @XmlElement(name = "chicken", type = Chicken.class),
+            @XmlElement(name = "dog", type = Dog.class),
+            @XmlElement(name = "parrot", type = Parrot.class) })
     private List<Animal> animals;
 
     public Zoo() {
-         this.animals = new ArrayList<>();
+        this.animals = new ArrayList<>();
     }
 
     public Zoo(List<Animal> animals) {
@@ -51,42 +59,43 @@ public class Zoo {
         insertOneFriendForEachAnimal();
     }
 
-    private void addOneRandomFriend(Animal animal){
-        do{
-            Animal randomAnimal = animals.get(randomInt(animals.size()));
-            if( animal.establishFriendship(randomAnimal) ){
-                System.out.printf("%s now is friends with %s\n", animal.getName(), randomAnimal.getName());
+    private void addOneRandomFriend(Animal animal) {
+
+        while (!animals.isEmpty()) {
+            Animal randomAnimal = pickRandomAnimal();
+            if (animal.establishFriendship(randomAnimal)) {
+                System.out.printf("%s now is friends with %s\n", animal.getName(),
+                        randomAnimal.getName());
                 break;
             }
-        } while(!animals.isEmpty());
+        }
+
     }
 
-    private void insertOneFriendForEachAnimal(){
+    public Animal pickRandomAnimal() {
+        return animals.get(Util.randomInt(animals.size()));
+    }
+
+    private void insertOneFriendForEachAnimal() {
         animals.stream().forEach(this::addOneRandomFriend);
     }
 
-    private void removeOneFriend(Animal animal){
+    private void removeOneFriend(Animal animal) {
         Optional<Animal> first = animal.getFriends().stream().findFirst();
-        if(first.isPresent()){
+        if (first.isPresent()) {
             Animal friend = first.get();
-            if(animal.loseFriendship(friend)){
-                System.out.printf("%s has lost friendship with %s\n", animal.getName(), friend.getName());
+            if (animal.loseFriendship(friend)) {
+                System.out.printf("%s has lost friendship with %s\n", animal.getName(),
+                        friend.getName());
             }
         }
     }
 
-    private void removeOneFriendOfEachAnimalIfThereIsAny(){
+    private void removeOneFriendOfEachAnimalIfThereIsAny() {
         animals.stream().forEach(this::removeOneFriend);
     }
 
-    /**
-     * Generate a random Int value
-     *
-     * @param max
-     * @return
-     */
-    public static int randomInt(int max) {
-        return (int) Math.floor(Math.random() * max);
+    public List<Animal> getAnimals() {
+        return animals;
     }
-
 }

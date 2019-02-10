@@ -1,6 +1,6 @@
 package animals;
 
-import animals.handler.Zoo;
+import animals.model.Zoo;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;

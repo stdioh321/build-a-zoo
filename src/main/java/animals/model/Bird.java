@@ -1,8 +1,14 @@
 package animals.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+
 public class Bird extends Animal {
 
+    @XmlAttribute
     private Float wingLength;
+
+    public Bird() {
+    }
 
     public Bird(String name, String favoriteFood, Float wingLength) {
         super(name, favoriteFood);
@@ -13,7 +19,4 @@ public class Bird extends Animal {
         return wingLength;
     }
 
-    public void setWingLength(Float wingLength) {
-        this.wingLength = wingLength;
-    }
 }

@@ -1,32 +1,30 @@
 package animals;
 
-import animals.handler.JsonHandler;
-import org.json.simple.parser.ParseException;
+import animals.model.Zoo;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class ParrotTest {
 
-    private JsonHandler jsonHandler;
+    private Zoo zoo;
 
     @Before
-    public void setUp() throws IOException, ParseException {
-        jsonHandler = new JsonHandler("/animals.json");
+    public void setUp() throws IOException, JAXBException {
+        zoo = (Zoo) Util.getResourceUnMarshall("/zoo.xml", Zoo.class);
     }
 
     @Test
     public void size() {
-        assertTrue(jsonHandler.getParrots().size() > 0);
+        // assertTrue(zoo.getAnimals().getParrots().size() > 0);
     }
 
     @Test
     public void properties() {
-        jsonHandler.getParrots().forEach(parrot -> assertNotNull(parrot.getName()));
+
+        // zoo.getParrots().forEach(parrot -> assertNotNull(parrot.getName()));
     }
 
 }

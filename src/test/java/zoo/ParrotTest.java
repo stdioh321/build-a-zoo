@@ -1,8 +1,8 @@
-package animals;
+package zoo;
 
-import animals.model.Animal;
-import animals.model.Dog;
-import animals.model.Zoo;
+import zoo.model.Animal;
+import zoo.model.Parrot;
+import zoo.model.Zoo;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,26 +12,26 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class DogTest {
+public class ParrotTest {
 
     private Zoo zoo;
-    private Set<Animal> dogs;
+    private Set<Animal> perrots;
 
     @Before
     public void setUp() {
         zoo = Util.initialZoo();
-        dogs = zoo.getAnimals().stream().filter(Animal.isAnimalByClass(Dog.class))
+        perrots = zoo.getAnimals().stream().filter(Animal.isAnimalByClass(Parrot.class))
                 .collect(Collectors.toSet());
     }
 
     @Test
     public void size() {
-        assertTrue(dogs.size() > 0);
+        assertTrue(perrots.size() > 0);
     }
 
     @Test
     public void properties() {
-        dogs.forEach(dog -> assertNotNull(((Dog) dog).getDogType()));
+        perrots.forEach(parrot -> assertNotNull(parrot.getName()));
     }
 
 }

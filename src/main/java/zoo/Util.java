@@ -1,6 +1,6 @@
-package animals;
+package zoo;
 
-import animals.model.*;
+import zoo.model.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

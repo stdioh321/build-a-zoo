@@ -1,6 +1,6 @@
-package animals;
+package zoo;
 
-import animals.model.Animal;
+import zoo.model.Animal;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBException;

@@ -5,7 +5,7 @@ package:
 	mvn package
 
 exec:
-	mvn exec:java -Dexec.mainClass=animals.Main
+	mvn exec:java -Dexec.mainClass=zoo.Main
 
 run:
 	java -jar target/building-zoo-1.0.jar

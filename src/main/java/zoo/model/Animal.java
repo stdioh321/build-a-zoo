@@ -1,4 +1,4 @@
-package animals.model;
+package zoo.model;
 
 import javax.xml.bind.annotation.*;
 import java.io.PrintStream;

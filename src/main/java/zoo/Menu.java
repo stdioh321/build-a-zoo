@@ -1,6 +1,6 @@
-package animals;
+package zoo;
 
-import animals.model.Zoo;
+import zoo.model.Zoo;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -27,7 +27,7 @@ public class Menu {
             System.out.print("Choose your option: ");
 
             switch (scanner.next()) {
-            // 1 - For display all the animals and their friends.
+            // 1 - For display all the zoo and their friends.
             case "1":
                 doListAllAnimals();
                 break;

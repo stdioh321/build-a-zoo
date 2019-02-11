@@ -1,6 +1,6 @@
-package animals.model;
+package zoo.model;
 
-import animals.Util;
+import zoo.Util;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -30,7 +30,7 @@ public class Zoo implements Serializable {
     }
 
     /**
-     * Display all the animals and their friends.
+     * Display all the zoo and their friends.
      */
     public void printAllAnimals() {
         for (Animal animal : animals) {

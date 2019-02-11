@@ -1,28 +1,28 @@
-package animals.model;
+package zoo.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import java.util.Objects;
 
-public class Chicken extends Bird {
+public class Parrot extends Bird {
 
     @XmlAttribute
-    private boolean broiler;
+    private boolean speak;
 
-    public Chicken() {
+    public Parrot() {
     }
 
-    public Chicken(String name, String favoriteFood, boolean broiler, Float wingLength) {
+    public Parrot(String name, String favoriteFood, boolean speak, Float wingLength) {
         super(name, favoriteFood, wingLength);
-        this.broiler = broiler;
+        this.speak = speak;
     }
 
-    public boolean isBroiler() {
-        return broiler;
+    public boolean isSpeak() {
+        return speak;
     }
 
     @Override
     public String toString() {
-        return super.toString() + String.format("broiler: %b, ", broiler);
+        return super.toString() + String.format("speak: %b, ", speak);
     }
 
     @Override
@@ -33,12 +33,12 @@ public class Chicken extends Bird {
             return false;
         if (!super.equals(o))
             return false;
-        Chicken chicken = (Chicken) o;
-        return broiler == chicken.broiler;
+        Parrot parrot = (Parrot) o;
+        return speak == parrot.speak;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), broiler);
+        return Objects.hash(super.hashCode(), speak);
     }
 }

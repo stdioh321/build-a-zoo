@@ -10,7 +10,7 @@
 
 ```
 mvn package
-mvn exec:java -D"exec.mainClass=animals.Main"
+mvn exec:java -D"exec.mainClass=zoo.Main"
 ```
 
 ### Test
@@ -22,7 +22,7 @@ mvn test
 
 ### Features
 
-1. List all animals with their properties and friends’ names.
+1. List all zoo with their properties and friends’ names.
 
 ```
 Menu.doListAllAnimals()

@@ -1,6 +1,6 @@
-package animals;
+package zoo;
 
-import animals.model.Zoo;
+import zoo.model.Zoo;
 import org.junit.Before;
 import org.junit.Test;
 

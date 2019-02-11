@@ -22,7 +22,7 @@ mvn test
 
 ### Features
 
-1. List all zoo with their properties and friends’ names.
+1. List all animals with their properties and friend's names.
 
 ```
 Menu.doListAllAnimals()

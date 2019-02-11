@@ -3,8 +3,10 @@ package zoo;
 import org.eclipse.persistence.jaxb.JAXBContextProperties;
 import zoo.model.*;
 
-import javax.activation.MimeType;
-import javax.xml.bind.*;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;

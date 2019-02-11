@@ -14,7 +14,7 @@ public class Dog extends Animal {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + String.format("dogType: %s, ", dogType);
     }
 
@@ -29,9 +29,12 @@ public class Dog extends Animal {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
         Dog dog = (Dog) o;
         return Objects.equals(dogType, dog.dogType);
     }

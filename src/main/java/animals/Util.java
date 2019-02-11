@@ -19,11 +19,11 @@ public final class Util {
     private Util() {
     }
 
-    public static int randomInt(int max){
+    public static int randomInt(int max) {
         return random.nextInt(max);
     }
 
-    public static int randomInt(){
+    public static int randomInt() {
         return random.nextInt();
     }
 
@@ -75,7 +75,7 @@ public final class Util {
         return animals;
     }
 
-    public static Zoo initialZoo(){
+    public static Zoo initialZoo() {
         return new Zoo(initialAnimals());
     }
 

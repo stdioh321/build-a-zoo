@@ -9,8 +9,8 @@ public class Menu {
 
     private final Zoo zoo;
 
-    public Menu(Zoo animalHandler) {
-        this.zoo = animalHandler;
+    public Menu(Zoo zoo) {
+        this.zoo = zoo;
     }
 
     /**

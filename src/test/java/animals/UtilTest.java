@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class UtilTest {
     @Test
-    public void initialRandomTest(){
+    public void initialRandomTest() {
         Animal animal = Util.randomAnimalWithFriends();
         assertNotNull(animal);
         assertNotNull(animal.getName());
@@ -22,13 +22,13 @@ public class UtilTest {
     public void marshalFileTest() {
         File zooTmpFile = null;
         try {
-            zooTmpFile = File.createTempFile("zoo",".xml");
+            zooTmpFile = File.createTempFile("zoo", ".xml");
             Util.writeAnimalsXML(zooTmpFile.getAbsolutePath());
-            assertTrue(zooTmpFile.length()>0);
+            assertTrue(zooTmpFile.length() > 0);
         } catch (IOException | JAXBException e) {
             e.printStackTrace();
         } finally {
-            if(zooTmpFile!=null){
+            if (zooTmpFile != null) {
                 zooTmpFile.delete();
             }
         }

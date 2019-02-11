@@ -19,7 +19,7 @@ public abstract class Animal implements Serializable {
     private String favoriteFood;
 
     @Override
-    public String toString(){
+    public String toString() {
         return String.format("Name: %s, FavoriteFood: %s, ", name, favoriteFood);
     }
 
@@ -57,7 +57,6 @@ public abstract class Animal implements Serializable {
     public boolean loseFriendship(Animal oldFriend) {
         return this.friends.remove(oldFriend);
     }
-
 
     @Override
     public boolean equals(Object o) {

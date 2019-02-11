@@ -20,17 +20,19 @@ public class Parrot extends Bird {
         return speak;
     }
 
-
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + String.format("speak: %b, ", speak);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
         Parrot parrot = (Parrot) o;
         return speak == parrot.speak;
     }

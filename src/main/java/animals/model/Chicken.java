@@ -21,15 +21,18 @@ public class Chicken extends Bird {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + String.format("broiler: %b, ", broiler);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
         Chicken chicken = (Chicken) o;
         return broiler == chicken.broiler;
     }

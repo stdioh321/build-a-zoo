@@ -21,15 +21,18 @@ public class Bird extends Animal {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + String.format("wingLength: %.2f, ", wingLength);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        if (!super.equals(o))
+            return false;
         Bird bird = (Bird) o;
         return Objects.equals(wingLength, bird.wingLength);
     }

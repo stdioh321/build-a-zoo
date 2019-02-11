@@ -56,6 +56,7 @@ public abstract class Animal implements Serializable {
     }
 
     public boolean loseFriendship(Animal oldFriend) {
+        oldFriend.friends.remove(this);
         return this.friends.remove(oldFriend);
     }
 

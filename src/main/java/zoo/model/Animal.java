@@ -51,6 +51,7 @@ public abstract class Animal implements Serializable {
     }
 
     public boolean establishFriendship(Animal newFriend) {
+        newFriend.friends.add(this);
         return this.friends.add(newFriend);
     }
 

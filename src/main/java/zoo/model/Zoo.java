@@ -59,9 +59,9 @@ public class Zoo implements Serializable {
         insertOneFriendForEachAnimal();
     }
 
-    private void addNRandomFriend(Animal animal, int nFriends) {
-        int amountOfFriends = animal.getFriends().size() + nFriends;
-        while (animal.getFriends().size() < amountOfFriends) {
+    private void addNRandomFriend(Animal animal, int amountOfFriends) {
+        int count = 0;
+        while (count++ < amountOfFriends) {
             Animal randomAnimal = pickRandomAnimal();
             if (animal.establishFriendship(randomAnimal)) {
                 System.out.printf("%s now is friends with %s%n", animal.getName(),

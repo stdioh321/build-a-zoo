@@ -2,7 +2,10 @@ package animals.model;
 
 import animals.Util;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +64,7 @@ public class Zoo implements Serializable {
         while (!animals.isEmpty()) {
             Animal randomAnimal = pickRandomAnimal();
             if (animal.establishFriendship(randomAnimal)) {
-                System.out.printf("%s now is friends with %s\n", animal.getName(),
+                System.out.printf("%s now is friends with %s%n", animal.getName(),
                         randomAnimal.getName());
                 break;
             }
@@ -82,7 +85,7 @@ public class Zoo implements Serializable {
         if (first.isPresent()) {
             Animal friend = first.get();
             if (animal.loseFriendship(friend)) {
-                System.out.printf("%s has lost friendship with %s\n", animal.getName(),
+                System.out.printf("%s has lost friendship with %s%n", animal.getName(),
                         friend.getName());
             }
         }

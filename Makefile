@@ -24,3 +24,9 @@ clean:
 
 dist:
 	zip -9 -r --exclude=*.git* --exclude=*.idea* dist.zip .
+
+sonar-docker:
+	docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+
+sonar:
+	mvn sonar:sonar

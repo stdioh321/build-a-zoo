@@ -10,23 +10,27 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public final class Util {
 
-    /**
-     * Generate a random Int value
-     *
-     * @param max
-     * @return
-     */
-    public static int randomInt(int max) {
-        return (int) Math.floor(Math.random() * max);
+    private static Random random = new Random();
+
+    private Util() {
+    }
+
+    public static int randomInt(int max){
+        return random.nextInt(max);
+    }
+
+    public static int randomInt(){
+        return random.nextInt();
     }
 
     public static Animal randomAnimal() {
-        String name = String.format("Dog %d", randomInt(100));
-        String favoriteFood = String.format("Food %d", randomInt(100));
-        String dogType = String.format("DogType %d", randomInt(100));
+        String name = String.format("Dog %d", randomInt());
+        String favoriteFood = String.format("Food %d", randomInt());
+        String dogType = String.format("DogType %d", randomInt());
 
         return new Dog(name, favoriteFood, dogType);
     }

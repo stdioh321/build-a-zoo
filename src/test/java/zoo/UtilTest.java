@@ -22,7 +22,7 @@ public class UtilTest {
     public void marshalFileTest() {
         File zooTmpFile = null;
         try {
-            zooTmpFile = File.createTempFile("zoo", ".xml");
+            zooTmpFile = File.createTempFile("zoo", ".json");
             Util.writeAnimalsXML(zooTmpFile.getAbsolutePath());
             assertTrue(zooTmpFile.length() > 0);
         } catch (IOException | JAXBException e) {

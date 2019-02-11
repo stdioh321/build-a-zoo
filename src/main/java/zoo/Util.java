@@ -1,5 +1,6 @@
 package zoo;
 
+import org.eclipse.persistence.jaxb.JAXBContextProperties;
 import zoo.model.*;
 
 import javax.xml.bind.JAXBContext;
@@ -41,10 +42,15 @@ public final class Util {
         return animal;
     }
 
+    static{
+        System.getProperties().setProperty("javax.xml.bind.context.factory","org.eclipse.persistence.jaxb.JAXBContextFactory");
+    }
+
     public static Object getResourceUnMarshall(String resourcePath, Class clazz)
             throws JAXBException {
         JAXBContext jc = JAXBContext.newInstance(clazz);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
+        unmarshaller.setProperty(JAXBContextProperties.MEDIA_TYPE, "application/json");
 
         InputStream resourceAsStream = Main.class.getResourceAsStream(resourcePath);
         return unmarshaller.unmarshal(resourceAsStream);
@@ -56,6 +62,7 @@ public final class Util {
 
         Marshaller marshaller = jc.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.setProperty(JAXBContextProperties.MEDIA_TYPE, "application/json");
 
         File file = new File(resourcePath);
         marshaller.marshal(object, file);

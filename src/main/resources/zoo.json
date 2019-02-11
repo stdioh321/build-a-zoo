@@ -1,0 +1,62 @@
+{
+   "zoo" : {
+      "animals" : {
+         "dog" : [ {
+            "name" : "Killian",
+            "favoriteFood" : "Meat",
+            "dogType" : "Hunting dog",
+            "friends" : {
+               "bird" : [ ]
+            }
+         }, {
+            "name" : "Rocky",
+            "favoriteFood" : "“Fresh meat",
+            "dogType" : "Working dog",
+            "friends" : {
+               "bird" : [ ]
+            }
+         }, {
+            "name" : "Peter",
+            "favoriteFood" : "“Pedigree",
+            "dogType" : "Sport dog",
+            "friends" : {
+               "bird" : [ ]
+            }
+         } ],
+         "parrot" : [ {
+            "name" : "Parrot one",
+            "favoriteFood" : "Grain",
+            "wingLength" : 0.25,
+            "speak" : false,
+            "friends" : {
+               "bird" : [ ]
+            }
+         }, {
+            "name" : "Parrot two",
+            "favoriteFood" : "Corn",
+            "wingLength" : 0.5,
+            "speak" : true,
+            "friends" : {
+               "bird" : [ ]
+            }
+         } ],
+         "chicken" : [ {
+            "name" : "Chicken one",
+            "favoriteFood" : "Corn",
+            "wingLength" : 0.75,
+            "broiler" : true,
+            "friends" : {
+               "bird" : [ ]
+            }
+         }, {
+            "name" : "Rocky",
+            "favoriteFood" : "Corn",
+            "wingLength" : 0.75,
+            "broiler" : false,
+            "friends" : {
+               "bird" : [ ]
+            }
+         } ]
+      }
+   }
+}
